@@ -4,6 +4,7 @@ package com.bridgelabz.lamdaexpression;
 import java.util.ArrayList;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 public class NumberPlayList {
     public static void main(String[] args) {
         ArrayList<Integer> myNumberList = new ArrayList<Integer>();
@@ -33,5 +34,8 @@ public class NumberPlayList {
       //implicit lambda function to print double values of integer array list
       		Function<Integer, Double> toDoubleFunction=Integer::doubleValue;
       		myNumberList.forEach(n->System.out.println("foreach lambda function to double value "+toDoubleFunction.apply(n)));
+      		Predicate<Integer> isEvenFunction = n -> n > 0 && n % 2 == 0;
+            myNumberList.forEach(n -> System.out
+                    .println((isEvenFunction.test(n) == true) ? +n + " is even number" : +n + " is a odd number"));
     }
 } 
