@@ -3,6 +3,7 @@ package com.bridgelabz.lamdaexpression;
 
 import java.util.ArrayList;
 import java.util.function.Consumer;
+import java.util.function.Function;
 public class NumberPlayList {
     public static void main(String[] args) {
         ArrayList<Integer> myNumberList = new ArrayList<Integer>();
@@ -29,5 +30,8 @@ public class NumberPlayList {
                 System.out.println("values of list using Anonymous class: " + t);
             }
         });
+      //implicit lambda function to print double values of integer array list
+      		Function<Integer, Double> toDoubleFunction=Integer::doubleValue;
+      		myNumberList.forEach(n->System.out.println("foreach lambda function to double value "+toDoubleFunction.apply(n)));
     }
 } 
